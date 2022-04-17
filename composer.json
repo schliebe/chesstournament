@@ -3,7 +3,8 @@
         "twig/twig": "^3.0",
         "symfony/debug": "^4.4",
         "symfony/var-dumper": "^6.0",
-        "pecee/simple-router": "4.3.7.2"
+        "pecee/simple-router": "4.3.7.2",
+        "ext-pdo": "*"
     },
     "autoload": {
         "psr-4": {
