@@ -19,4 +19,30 @@ class SQLiteDatabase implements Database
             throw $e;
         }
     }
+
+    public function getUserId(string $username): ?int
+    {
+        $sql = '
+            SELECT user_id
+            FROM User
+            WHERE username = :username
+        ';
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['username' => $username]);
+        $result = $stmt->fetch();
+        return $result['user_id'] ?? null;
+    }
+
+    public function getPasswordHash(int $userId): ?string
+    {
+        $sql = '
+            SELECT password
+            FROM User
+            WHERE user_id = :user_id
+        ';
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute(['user_id' => $userId]);
+        $result = $stmt->fetch();
+        return $result['password'] ?? null;
+    }
 }
