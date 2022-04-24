@@ -10,8 +10,8 @@
         <nav class="navbar navbar-expand navbar-dark bg-secondary bg-gradient">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ constant('App\\Routes::INDEX') }}">
-                    <img src="/media/logo.png" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
-                    chesstournament
+                    <img src="{{ constant('App\\TournamentSettings::TOURNAMENT_LOGO') }}" alt="Logo" width="30" height="30" class="d-inline-block align-text-top">
+                    {{ constant('App\\TournamentSettings::TOURNAMENT_NAME') }}
                 </a>
                 <div class="navbar-nav me-auto">
                     <a class="nav-link {% if page == "season" %}active{% endif %}" href="{{ constant('App\\Routes::SEASON') }}">Season</a>
