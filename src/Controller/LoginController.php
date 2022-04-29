@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use App\Routes;
 
-class LoginController extends Controller
+class LoginController extends AbstractController
 {
 
     /**
@@ -15,7 +15,7 @@ class LoginController extends Controller
     function loginAction(): string
     {
         // Check if user is logged in already
-        if ($_SESSION['loggedIn'] ?? false) {
+        if ($this->isLoggedIn()) {
             redirect(Routes::INDEX);
         }
 
@@ -42,7 +42,7 @@ class LoginController extends Controller
         }
 
         $parameters = [
-            'loggedIn' => $_SESSION['loggedIn'] ?? false,
+            'loggedIn' => $this->isLoggedIn(),
             'formValues' => $formValues,
             'formErrors' => $formErrors,
         ];

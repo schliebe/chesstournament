@@ -2,12 +2,12 @@
 
 namespace App\Controller;
 
-class IndexController extends Controller
+class IndexController extends AbstractController
 {
     function indexAction(): string
     {
         $parameters = [
-            'loggedIn' => $_SESSION['loggedIn'] ?? false,
+            'loggedIn' => $this->isLoggedIn(),
         ];
         return $this->twig->render('index.html.twig', $parameters);
     }
